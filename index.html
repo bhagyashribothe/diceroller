@@ -1,98 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dice Roller</title>
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f0f4f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      flex-direction: column;
-    }
-
-    .container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      width: 300px;
-    }
-
-    h1 {
-      font-size: 36px;
-      color: #4CAF50;
-      margin-bottom: 20px;
-    }
-
-    .dice-container {
-      margin: 20px 0;
-    }
-
-    .dice {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      border: 2px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .dice:hover {
-      transform: scale(1.1);
-    }
-
-    button {
-      padding: 12px 25px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .result {
-      margin-top: 20px;
-      font-size: 20px;
-      color: #333;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <link rel="stylesheet" href="../diceroller/index.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>Dice Roller</h1>
-    <div class="dice-container">
-      <img id="diceImage" class="dice" src="../diceroller/diceroller.webp" alt="Dice">
+    <div class="container">
+        <h1>Dice Roller</h1>
+        <div class="dice-container">
+            <img id="dice1" src="../diceroller/diceroller.webp" alt="Dice 1">
+            <img id="dice2" src="../diceroller/dice1.jpg" alt="Dice 2">
+        </div>
+        <button id="rollButton">Roll Dice</button>
+        <p id="result">Result: </p>
     </div>
-    <button onclick="rollDice()">Roll Dice</button>
-    <div class="result" id="diceResult">Roll to see the result</div>
-  </div>
-  <script>
-    function rollDice()
-     {
-      const diceImages = [
-        'dice2.webp', 'dice1.jpg', 'dice3.webp'
-      ];
-      const randomIndex = Math.floor(Math.random() * diceImages.length);
-      document.getElementById('diceImage').src = diceImages[randomIndex];
-      document.getElementById('diceResult').textContent = `You rolled a ${randomIndex + 1}`;
-    }
-  </script>
 
+    <script src="../diceroller/script.js"></script>
 </body>
 </html>
