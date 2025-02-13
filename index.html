@@ -77,15 +77,16 @@
   <div class="container">
     <h1>Dice Roller</h1>
     <div class="dice-container">
-      <img id="diceImage" class="dice" src="dice1.png" alt="Dice">
+      <img id="diceImage" class="dice" src="../diceroller/diceroller.webp" alt="Dice">
     </div>
     <button onclick="rollDice()">Roll Dice</button>
     <div class="result" id="diceResult">Roll to see the result</div>
   </div>
   <script>
-    function rollDice() {
+    function rollDice()
+     {
       const diceImages = [
-        'dice1.png', 'dice2.png', 'dice3.png', 'dice4.png', 'dice5.png', 'dice6.png'
+        'dice2.webp', 'dice1.jpg', 'dice3.webp'
       ];
       const randomIndex = Math.floor(Math.random() * diceImages.length);
       document.getElementById('diceImage').src = diceImages[randomIndex];
