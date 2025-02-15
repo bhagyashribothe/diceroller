@@ -7,15 +7,20 @@
     <link rel="stylesheet" href="../diceroller/index.css">
 </head>
 <body>
-
     <div class="container">
         <h1>Dice Roller</h1>
         <div class="dice-container">
-            <img id="dice1" src="../diceroller/diceroller.webp" alt="Dice 1">
-            <img id="dice2" src="../diceroller/dice1.jpg" alt="Dice 2">
+            <img src="./img/dice(1).png" alt="Dice 1" class="dice" data-value="1">
+            <img src="./img/dice(2).png" alt="Dice 2" class="dice" data-value="2">
+            <img src="./img/dice(3).png" alt="Dice 3" class="dice" data-value="3">
+            <img src="./img/dice(4).png" alt="Dice 4" class="dice" data-value="4">
+            <img src="./img/dice(5).png" alt="Dice 5" class="dice" data-value="5">
+            <img src="./img/dice(6).png" alt="Dice 6" class="dice" data-value="6">
         </div>
-        <button id="rollButton">Roll Dice</button>
-        <p id="result">Result: </p>
+        <div class="result">
+            <h2>Rolled Number: <span id="rolledNumber">0</span></h2>
+        </div>
+        <button onclick="rollDice()">Roll Dice</button>
     </div>
 
     <script src="../diceroller/script.js"></script>
