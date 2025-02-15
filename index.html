@@ -4,25 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Roller</title>
-    <link rel="stylesheet" href="../diceroller/index.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            height: 400px;
+        }
+
+        .dice-img {
+            width: 100px;
+            height: 100px;
+            transition: transform 0.2s ease-in-out;
+            margin: 20px;
+        }
+
+        .dice-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .roll-btn {
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .roll-btn:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        .loading {
+            font-size: 20px;
+            color: #ff6f61;
+        }
+
+        .dice-roll {
+            animation: roll-animation 1s ease-in-out;
+        }
+
+        @keyframes roll-animation {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Dice Roller</h1>
-        <div class="dice-container">
-            <img src="./img/dice(1).png" alt="Dice 1" class="dice" data-value="1">
-            <img src="./img/dice(2).png" alt="Dice 2" class="dice" data-value="2">
-            <img src="./img/dice(3).png" alt="Dice 3" class="dice" data-value="3">
-            <img src="./img/dice(4).png" alt="Dice 4" class="dice" data-value="4">
-            <img src="./img/dice(5).png" alt="Dice 5" class="dice" data-value="5">
-            <img src="./img/dice(6).png" alt="Dice 6" class="dice" data-value="6">
-        </div>
-        <div class="result">
-            <h2>Rolled Number: <span id="rolledNumber">0</span></h2>
-        </div>
-        <button onclick="rollDice()">Roll Dice</button>
-    </div>
 
-    <script src="../diceroller/script.js"></script>
+<div class="container">
+    <h1>Dice Roller</h1>
+    <div class="dice-container">
+        <img id="dice" src="./img/diceroller.png" alt="Dice" class="dice-img">
+    </div>
+    <button class="roll-btn" onclick="rollDice()">Roll Dice</button>
+    <p class="result" id="result"></p>
+    <p class="loading" id="loading"></p>
+</div>
+
+<script>
+    const diceImages = [
+        "./img/dice(1).png",
+        "./img/dice(2).png",
+        "./img/dice(3).png",
+        "./img/dice(4).png",
+        "./img/dice(5).png",
+        "./img/dice(6).png"
+    ];
+
+    const dice = document.getElementById('dice');
+    const resultText = document.getElementById('result');
+    const loadingText = document.getElementById('loading');
+
+    function rollDice() {
+        resultText.textContent = '';
+        loadingText.textContent = 'Rolling...';
+        dice.classList.add('dice-roll');
+
+        // Simulate dice rolling effect
+        setTimeout(() => {
+            const randomNumber = Math.floor(Math.random() * 6);
+            dice.src = diceImages[randomNumber];
+            resultText.textContent = `You rolled a ${randomNumber + 1}`;
+            loadingText.textContent = '';
+        }, 1000);
+    }
+</script>
+
 </body>
 </html>
+
